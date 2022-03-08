@@ -30,6 +30,7 @@ class Info {
   late final int count;
   late final int pages;
   late final String next;
+  // ignore: prefer_void_to_null
   late final Null prev;
 
   Info.fromJson(Map<String, dynamic> json) {

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:kode_start_rick_and_morty/components/app_bar_components.dart';
 import 'package:kode_start_rick_and_morty/components/detailed_characters_card.dart';
 import 'package:kode_start_rick_and_morty/data/respository.dart';

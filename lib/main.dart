@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kode_start_rick_and_morty/pages/details_page.dart';
 import 'package:kode_start_rick_and_morty/pages/home_page.dart';
