@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kode_start_rick_and_morty/models/detailed_character.dart';
 import 'package:kode_start_rick_and_morty/theme/app_colors.dart';

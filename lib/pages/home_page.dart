@@ -4,7 +4,6 @@ import 'package:kode_start_rick_and_morty/components/characters_card.dart';
 import 'package:kode_start_rick_and_morty/data/respository.dart';
 import 'package:kode_start_rick_and_morty/models/paginated_characters.dart';
 import 'package:kode_start_rick_and_morty/theme/app_colors.dart';
-import "package:infinite_scroll_pagination/infinite_scroll_pagination.dart";
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,24 +14,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Future<PaginatedCharacters>? characters;
-  int currentPage = 1;
-  ScrollController scrollController = ScrollController();
+
+//tentei implementar a lista infita, mas não consegui.
+// essa foi a forma que encontrei de consumir as outras pg da API
 
   @override
   void initState() {
-    characters = Repository.getAllCharacters(currentPage);
-    scrollController.addListener(onScroll);
-    super.initState();
-  }
+    characters = Repository.getAllCharacters();
 
-  void onScroll() {
-    if (scrollController.position.pixels ==
-        scrollController.position.maxScrollExtent) {
-      setState(() {
-        currentPage++;
-        characters = Repository.getAllCharacters(currentPage);
-      });
-    }
+    super.initState();
   }
 
   @override
@@ -46,7 +36,6 @@ class _HomePageState extends State<HomePage> {
             if (snapshot.hasData) {
               final dataResults = snapshot.data!.results;
               return ListView.builder(
-                controller: scrollController,
                 padding: const EdgeInsets.symmetric(vertical: 7.5),
                 itemBuilder: (context, index) {
                   return CharactersCard(
