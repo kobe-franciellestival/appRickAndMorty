@@ -14,15 +14,24 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Future<PaginatedCharacters>? characters;
-
-//tentei implementar a lista infita, mas não consegui.
-// essa foi a forma que encontrei de consumir as outras pg da API
+  int currentPage = 1;
+  ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
-    characters = Repository.getAllCharacters();
-
+    characters = Repository.getAllCharacters(currentPage);
+    scrollController.addListener(onScroll);
     super.initState();
+  }
+
+  void onScroll() {
+    if (scrollController.position.pixels ==
+        scrollController.position.maxScrollExtent) {
+      setState(() {
+        currentPage++;
+        characters = Repository.getAllCharacters(currentPage);
+      });
+    }
   }
 
   @override
