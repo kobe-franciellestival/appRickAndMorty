@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import '../theme/app_colors.dart';
 
 PreferredSizeWidget appBarComponent(BuildContext context,
@@ -9,7 +9,6 @@ PreferredSizeWidget appBarComponent(BuildContext context,
   return AppBar(
     toolbarHeight: 135,
     backgroundColor: AppColors.appBarColor,
-    brightness: Brightness.dark,
     //After
     leading: Container(),
     //After 2 Page
@@ -68,6 +67,6 @@ PreferredSizeWidget appBarComponent(BuildContext context,
           ],
         ),
       ),
-    ),
+    ), systemOverlayStyle: SystemUiOverlayStyle.light,
   );
 }
